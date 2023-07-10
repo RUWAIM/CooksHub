@@ -1,0 +1,33 @@
+<div class="pl-5 w-full  h-full md:h-full  bg-slate-100">
+  <div class="w-screen pr-5">
+   <input type="text" (keydown)="getrecipe(inp.value)" class="ml-10 md:ml-[200px] lg:ml-[400px] lg:w-[900px] md:w-[400px] border-2 border-gray-500 rounded-3xl mt-4 h-10 w-80 pl-7 md:pl-14 pr-10 md:pr-28" #inp>
+   <button class="bg-zinc-300 pl-5 pr-5 rounded-2xl md:ml-[-93px] ml-[267px] relative md:top-0 top-[-36px] h-8 hover:bg-yellow-400"
+   (click)="getrecipe(inp.value)">Search</button>
+  </div>
+
+  <!-- card -->
+  <div class="flex flex-wrap md:ml-16">
+ <div *ngFor="let item of myRecipe" class=" ">
+  <div  class="card ml-20 md:ml-10   md:mt-5  align-middle place-content-center justify-center">
+    <div class="card-inner">
+      <div class=" front md:flex h-[270px] md:h-[250px] w-[250px] flex flex-col">
+<img class="" src="{{item.recipe.image}}" alt="">
+<h1 class="font-extrabold text-[#5e8031]">{{item.recipe.label}}</h1>
+      </div>
+      <div class="back md:webkit-scrollbar {
+        width: 1px;
+      }">
+<h1 class="font-black text-red-700 border-b-2">INGREDIENTS</h1>
+<div class=" ml-3 w-[200px] ">
+<p class="mt-4 ml-5  pb-4 overflow-y-auto  w-[200px] border-gray-700 text-[#0a0606]  ">{{item.recipe.ingredientLines}}</p>
+</div>
+<h1 class="font-black ml-1  text-red-700 border-b-2">How to cook?</h1>
+<a href="{{item.recipe.url}}">&nbsp;<span class="text-lg text-blue-600">click here</span></a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+
+</div>
